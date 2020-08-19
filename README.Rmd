@@ -29,7 +29,9 @@ specific classes can be added to the R/ directory.
 This package should not be installed. Instead it should
 be forked from [GitHub](https://github.com/emeyers/ClassTools).  
 
-How to fork a package: https://deanmalone.net/post/how-to-fork-your-own-repo-on-github/
+How to fork my own package: https://deanmalone.net/post/how-to-fork-your-own-repo-on-github/
+
+How to rename a package: https://www.njtierney.com/post/2017/10/27/change-pkg-name/
 
 
 ## How to use the package
