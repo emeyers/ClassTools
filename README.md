@@ -1,20 +1,86 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-ClassTools
-==========
+
+# ClassTools
 
 <!-- badges: start -->
+
 <!-- badges: end -->
-The ClassTools package has a set of functions that are useful for downloading material related to classes from GitHub. This package should forked to create a package that is designed for a particular class. All material for a specific class should be put in the ClassMaterial directory. Additional R code useful for specific classes can be added to the R/ directory.
 
-Installation
-------------
+The ClassTools package has a set of functions that are useful for
+downloading material related to classes from GitHub. This package should
+forked to create a package that is designed for a particular class. All
+material for a specific class should be put in the ClassMaterial
+directory. Additional R code useful for specific classes can be added to
+the R/ directory.
 
-This package should not be installed. Instead it should be forked from [GitHub](https://github.com/emeyers/ClassTools).
+## Installation
 
-How to fork a package: <https://deanmalone.net/post/how-to-fork-your-own-repo-on-github/>
+This package should not be installed. Instead it should be forked from
+[GitHub](https://github.com/emeyers/ClassTools).
 
-How to use the package
-----------------------
+Here are directions on how to make the necessary changes to turn the
+ClassTools package into a class specific package:
 
-Add how to use the package here...
+1)  Fork ClassTools repository to a new GitHub repo. Here are directions
+    on how to fork my own package:
+    <https://deanmalone.net/post/how-to-fork-your-own-repo-on-github/>
+
+2)  In the DESCRIPTION file rename the package
+
+3)  Rename the ClassTools.RProj file
+
+4)  In get\_package\_and\_url\_names.R change the package\_name variable
+
+5)  In testthat/testthat.R change library(ClassTools) and
+    test\_check(“ClassTools”)
+
+6)  Push changes to GitHub and run devtools::test()
+
+7)  Edit the Readme.Rmd to list information relevant to the class
+
+## Example of forked package in use
+
+Here is an example of a forked package used in a class:
+<https://github.com/emeyers/SDS230>
+
+## How to use the package
+
+### Getting homework
+
+How homework should be R Markdown files put in the
+ClassMaterial/homework directory. Homework should be named
+`homework_XX.Rmd`, where `XX` is a two digit number. For example, the
+first homework should be called `homework_01.Rmd`. Once a homework file
+is created students can download it using the code below.
+
+``` r
+# download the first homework
+download_homework(1)
+```
+
+### Updating the package
+
+New functions can be added to the package mid-semester by adding new .R
+files to the R/ directory. One should also update the version number in
+the DESCRIPTION file so that one can check that the updates have taken
+place. Students can then update the class package to have access to
+these function by running the `reinstall_package()` function.
+
+``` r
+# reinstall the package from GitHub to contain updated functions.
+reinstall_package()
+```
+
+### Updating installed packages
+
+A list of packages that students should have installed is in the file
+ClassMaterial/required\_package.txt. Package names should be on new
+lines separated by commas (similar to how they are listed in the Imports
+line of the DESCRIPTION file). Students can then install all the
+required class packages using the `update_installed_packages()` function
+
+``` r
+# install any packages used in the class
+update_installed_packages()
+```
