@@ -40,25 +40,16 @@ download_homework <- function(homework_number) {
 #' @param class_number A number indicating which class we should get the code
 #'   for.
 #'
-#' @param with_answers A boolean indicating whether you want the class Markdown
-#'   document that contains all the code filled out, or you want the version
-#'   that will be used in class where we fill out the solutions as you go.
-#'
 #' @examples
 #'  # Download code from the first class
 #'  \dontrun{download_class_code(1)}
 #'
 #' @export
-download_class_code <- function(class_number, with_answers = FALSE) {
+download_class_code <- function(class_number) {
 
   base_path <- paste0(get_base_url(), "class_code/")
 
  file_names <- paste0("class_", sprintf("%02d", class_number), c(".Rmd", ".R"))
-
- if (with_answers) {
-   file_names <- paste0("class_", sprintf("%02d", class_number), "_with_answers", c(".Rmd", ".R"))
- }
-
 
   result = tryCatch({
 

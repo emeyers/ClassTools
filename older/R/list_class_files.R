@@ -14,15 +14,8 @@ list_class_files <- function(file_dir_name) {
                 " This argument must be set to one of the following: '",
                 paste(possible_file_dir_names,collapse="', '"), "'."))
 
-
-  # Use a github API call to assess all files on the ClassMaterials directory on github
-  file_url <- paste0("https://api.github.com/repos/",
-                     get_github_user_name(), "/",
-                     get_package_name(),
-                     "/git/trees/",
-                     get_main_master_branch_name(),
-                     "?recursive=1")
-
+  file_url <- paste0("https://api.github.com/repos/", get_github_user_name(), "/",
+                     get_package_name(), "/git/trees/master?recursive=1")
 
   req <- httr::GET(file_url)
   stop_for_status(req)
